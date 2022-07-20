@@ -9,12 +9,16 @@
   >
     Create User
   </router-link>
+  
+  <Seeker />
+
   <ListUsers />
 </template>
 
 <script>
 
 import ListUsers from "../components/ListUsers";
+import Seeker from "../components/Seeker.vue";
 import { mapActions } from "vuex";
 
 
@@ -22,6 +26,7 @@ export default {
   name: "Home",
   components: {
     ListUsers,
+    Seeker
   },
   data() {
     return {
