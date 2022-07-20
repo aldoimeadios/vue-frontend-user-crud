@@ -1,11 +1,14 @@
 <template>
   <div class="navbar navbar-dark bg-dark">
-      <router-link 
-        to="/" 
-        class="navbar-brand ml-2"
-      >
-        Users
-      </router-link>
+      <div class="d-felx">
+        <router-link 
+          to="/" 
+          class="navbar-brand ml-2"
+          v-if="userAuth"
+        >
+          Users
+        </router-link>
+      </div>
       <div class="d-felx">
           <router-link 
             to="/login" 

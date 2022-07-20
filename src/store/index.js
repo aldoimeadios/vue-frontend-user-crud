@@ -19,7 +19,9 @@ export default createStore({
       message: null
     },
     people: null,
-    url: 'http://localhost:8000/api/'
+    url: 'http://localhost:8000/api/',
+    userFilters: [],
+
   },
   mutations: {
     setPeople(state, payload){
@@ -55,6 +57,9 @@ export default createStore({
         }
       }
     },
+    setUserFilters(state, payload) {
+      state.userFilters = payload
+    }
   },
   actions: {
     async uploadStorage({commit, state}){
@@ -209,6 +214,12 @@ export default createStore({
       } catch (error) {
         console.log(error)
       }
+    },
+    nameFilters({commit, state}, name){
+      const filt = state.users.filter(user => {
+        return user.name.toLowerCase().includes(name.toLowerCase())
+      })
+      commit('setUserFilters', filt)
     },
   },
   getters:{
