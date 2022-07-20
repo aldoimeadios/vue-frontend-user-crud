@@ -48,10 +48,10 @@ export default createStore({
       router.push('/')
     },
     setError(state, payload) {
-      if (payload === "EMAIL_NOT_FOUND") {
+      if (payload === "something_went_wrong") {
         return state.error = {
           type: 'email',
-          message: 'Email no registrado'
+          message: 'The provided credentials are incorrect.'
         }
       }
     },
@@ -128,6 +128,7 @@ export default createStore({
         })
         const userDB = await res.json()
         if(userDB.error){
+          console.log('asdasd')
           console.log(userDB.error)
           return commit('setError', userDB.error.message)
         }
