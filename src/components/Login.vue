@@ -30,7 +30,7 @@ export default {
         if (!this.user.email.includes("@")) {
             return true;
         }
-        if (this.user.password.length > 5) {
+        if (this.user.password.length > 7) {
             return false;
         }
         return true;
