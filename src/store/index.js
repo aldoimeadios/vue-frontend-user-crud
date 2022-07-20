@@ -9,6 +9,10 @@ export default createStore({
       name: '',
       email: '',
       password: '',
+      phone: '',
+      id_card: '',
+      date_of_birth: '',
+      city_code: ''
     },
     error: {
       type: null,
@@ -90,6 +94,10 @@ export default createStore({
             name: user.name,
             email: user.email,
             password: user.password,
+            phone: user.phone,
+            id_card: user.id_card,
+            date_of_birth: user.date_of_birth,
+            city_code: user.city_code,
           })
         })
         const userDB = await res.json()

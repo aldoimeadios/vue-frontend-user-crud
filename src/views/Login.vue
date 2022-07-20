@@ -4,26 +4,7 @@
       {{ error.message }}
   </div>
   <form @submit.prevent="submitLogin">
-      <!-- <Login :user="user" /> -->
-      <input 
-        type="email" 
-        placeholder="Email" 
-        class="form-control my-2"
-        v-model.trim="user.email"
-    />
-    <input 
-        type="password" 
-        placeholder="Password" 
-        class="form-control my-2"
-        v-model.trim="user.password"
-    />
-    <button 
-        type="submit"
-        class="btn btn-primary"
-        :disabled="disabled"
-    >
-        Login
-    </button>
+      <Login :user="user" />
   </form>
 </template>
 
@@ -31,7 +12,6 @@
 import { mapActions, mapState } from 'vuex'
 import Login from '../components/Login';
 
-// const shortid = require('shortid');
 
 export default {
     components: {
@@ -50,7 +30,7 @@ export default {
         if (!this.user.email.includes("@")) {
             return true;
         }
-        if (this.user.password.length > 5) {
+        if (this.user.password.length > 7) {
             return false;
         }
         return true;
@@ -60,7 +40,6 @@ export default {
     methods: {
         ...mapActions(['loginUser']),
         submitLogin(){
-            // this.user.id = shortid.generate()
             this.loginUser(this.user)
             this.user = {
                 email: '',

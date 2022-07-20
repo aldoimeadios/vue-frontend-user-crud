@@ -12,7 +12,7 @@ const routes = [
   {
     path: '/create',
     name: 'Create',
-    component: () => import(/* webpackChunkName: "edit" */ '../views/Create.vue'),
+    component: () => import(/* webpackChunkName: "create" */ '../views/Create.vue'),
     meta: {requiresAuth: true}
   },
   {
